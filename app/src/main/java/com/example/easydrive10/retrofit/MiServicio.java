@@ -1,5 +1,6 @@
 package com.example.easydrive10.retrofit;
 
+import com.example.easydrive10.Camionero;
 import com.example.easydrive10.Presidente;
 
 import java.util.ArrayList;
@@ -11,9 +12,10 @@ public interface MiServicio {
 //    @GET SIRVE PARA INDICAR EL PHP QUE VAMOS A USAR PARA LA CONSULTA
     @GET("cogerPresidentes.php")
 //    Call LLAMADA AL GET, Y DEVUELVE LO QUE HAY DENTRO DEL CALL
-    Call<ArrayList<Presidente>> getPresidentes();
+    Call<ArrayList<Camionero>> getPresidentes();
     //    @GET SIRVE PARA INDICAR EL PHP QUE VAMOS A USAR PARA LA CONSULTA
-    @GET("cogerPres.php")
+    @GET("consultaCamioneros.php")
 //    Call LLAMADA AL GET, Y DEVUELVE LO QUE HAY DENTRO DEL CALL
-    Call<ArrayList<Presidente>> getPresidente();
+    Call<ArrayList<Camionero>> getPresidente();
+
 }

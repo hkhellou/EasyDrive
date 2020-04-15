@@ -19,10 +19,10 @@ public class MainActivity extends AppCompatActivity implements IMainInterface{
         setContentView(R.layout.activity_main);
         viewModel = new ViewModelProvider(this,new MainViewModelFactory(this,this)).get(MainViewModel.class);
         texto = findViewById(R.id.txt_Prueba);
-        viewModel.getPresidentesMutables().observe(this, new Observer<ArrayList<Presidente>>() {
+        viewModel.getPresidentesMutables().observe(this, (Observer<? super ArrayList<Camionero>>) new Observer<ArrayList<Camionero>>() {
             @Override
-            public void onChanged(ArrayList<Presidente> presidentes) {
-                texto.setText(presidentes.toString());
+            public void onChanged(ArrayList<Camionero> camionero) {
+                texto.setText(camionero.toString());
             }
         });
  //       viewModel.getPresidentes();

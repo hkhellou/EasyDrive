@@ -1,7 +1,6 @@
 package com.example.easydrive10;
 
 import android.content.Context;
-import android.net.wifi.aware.PublishConfig;
 import android.util.Log;
 
 import com.example.easydrive10.retrofit.MiRepositorio;
@@ -17,8 +16,8 @@ import retrofit2.Response;
 
 public class MainViewModel extends ViewModel {
 
-    private MutableLiveData<ArrayList<Presidente>> presidentesMutables;
-    private MutableLiveData<Presidente> presidenteMutable;
+    private MutableLiveData<ArrayList<Camionero>> presidentesMutables;
+    private MutableLiveData<Camionero> presidenteMutable;
 
     private Context context;
     private  IMainInterface iMainInterface;
@@ -34,41 +33,41 @@ public class MainViewModel extends ViewModel {
     }
     public void getPresidentes(){
         Log.i("aki", "HOLA AKI TOOOOOOOOOOOOOOOOOY");
-        miServicio.getPresidentes().enqueue(new Callback<ArrayList<Presidente>>() {
+        miServicio.getPresidentes().enqueue(new Callback<ArrayList<Camionero>>() {
             @Override
-            public void onResponse(Call<ArrayList<Presidente>> call, Response<ArrayList<Presidente>> response) {
+            public void onResponse(Call<ArrayList<Camionero>> call, Response<ArrayList<Camionero>> response) {
 //                EL ARRAY QUE ME DEVUELVE LA CONSULTA ESTÁ EN response.body();
-                    ArrayList<Presidente> listaPresis = response.body();
+                    ArrayList<Camionero> listaPresis = response.body();
                     presidentesMutables.setValue(listaPresis);
 
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Presidente>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Camionero>> call, Throwable t) {
                 Log.i("errorR", "onFailure: "+t);
             }
         });
     }
     public void getPresidente(){
-        miServicio.getPresidente().enqueue(new Callback<ArrayList<Presidente>>() {
+        miServicio.getPresidente().enqueue(new Callback<ArrayList<Camionero>>() {
             @Override
-            public void onResponse(Call<ArrayList<Presidente>> call, Response<ArrayList<Presidente>> response) {
-                ArrayList<Presidente> presi = response.body();
+            public void onResponse(Call<ArrayList<Camionero>> call, Response<ArrayList<Camionero>> response) {
+                ArrayList<Camionero> presi = response.body();
                 presidentesMutables.setValue(presi);
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Presidente>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Camionero>> call, Throwable t) {
 
             }
         });
     }
 //    TENGO QUE TENER UN GETTER DE CADA MUTABLE
-    public MutableLiveData<ArrayList<Presidente>> getPresidentesMutables() {
+    public MutableLiveData<ArrayList<Camionero>> getPresidentesMutables() {
         return presidentesMutables;
     }
 
-    public MutableLiveData<Presidente> getPresidenteMutable() {
+    public MutableLiveData<Camionero> getPresidenteMutable() {
         return presidenteMutable;
     }
 }
