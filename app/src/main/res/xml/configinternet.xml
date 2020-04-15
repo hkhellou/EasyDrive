@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CONFIG PARA PERMITIR EL ACCESO AL SERVIDOR MURGI-->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">www.iesmurgi.org</domain>
+    </domain-config>
+</network-security-config>
