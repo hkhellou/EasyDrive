@@ -3,6 +3,7 @@ package com.example.easydrive10;
 import android.content.Context;
 import android.util.Log;
 
+import com.example.easydrive10.pojos.Camionero;
 import com.example.easydrive10.retrofit.MiRepositorio;
 import com.example.easydrive10.retrofit.MiServicio;
 
@@ -33,7 +34,7 @@ public class MainViewModel extends ViewModel {
     }
     public void getPresidentes(){
         Log.i("aki", "HOLA AKI TOOOOOOOOOOOOOOOOOY");
-        miServicio.getPresidentes().enqueue(new Callback<ArrayList<Camionero>>() {
+        miServicio.getCamioneros().enqueue(new Callback<ArrayList<Camionero>>() {
             @Override
             public void onResponse(Call<ArrayList<Camionero>> call, Response<ArrayList<Camionero>> response) {
 //                EL ARRAY QUE ME DEVUELVE LA CONSULTA ESTÁ EN response.body();

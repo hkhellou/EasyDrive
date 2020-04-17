@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">EasyDrive 1.0</string>
+    <string name="btnEnterLogin">Entrar</string>
+    <string name="txtLoginPass">Contraseña</string>
+    <string name="txtLoginEmail">"Correo "</string>
+    <string name="txtLoginTittle">Inicio de sesión</string>
 </resources>

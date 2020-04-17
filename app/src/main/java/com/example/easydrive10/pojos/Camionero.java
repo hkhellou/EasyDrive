@@ -1,4 +1,4 @@
-package com.example.easydrive10;
+package com.example.easydrive10.pojos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
