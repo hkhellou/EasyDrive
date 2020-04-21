@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MiRepositorio {
     //SINGLETON PARA TENER UNA UNICA INSTANCIA PARA EL ACCESO AL SERVIDOR
-    private static final String ROOTURL = "http://www.iesmurgi.org:86/~houssam/";
+    private static final String ROOTURL = "http://reversoappdb.ddns.net:8080/houssam/php/";
     private static final long TIME_OUT = 10;
 
     private static Retrofit getRetrofitInstance(){

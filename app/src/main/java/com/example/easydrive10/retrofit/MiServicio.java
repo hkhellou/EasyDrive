@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface MiServicio {
 //    @GET SIRVE PARA INDICAR EL PHP QUE VAMOS A USAR PARA LA CONSULTA
@@ -20,5 +21,10 @@ public interface MiServicio {
 //    CONSULTA USUARIOS
     @GET("consultaUsuarios.php")
     Call<ArrayList<Usuario>> getUsuarios();
+//   INSERTAR EN BBDD
+    @GET("insertarUsuario.php")
+    Call<Void> insertarUsuario(@Query("correo")String SCorreo,@Query("contrasenia")String SContrasenia);
+    @GET("comprobarUsuarioExiste.php")
+    Call<Usuario> comprobarUsuario(@Query("correo")String SCorreo,@Query("contrasenia")String SContrasenia);
 
 }

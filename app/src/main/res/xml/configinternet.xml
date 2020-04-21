@@ -2,6 +2,6 @@
 <!-- CONFIG PARA PERMITIR EL ACCESO AL SERVIDOR MURGI-->
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">www.iesmurgi.org</domain>
+        <domain includeSubdomains="true">reversoappdb.ddns.net</domain>
     </domain-config>
 </network-security-config>
