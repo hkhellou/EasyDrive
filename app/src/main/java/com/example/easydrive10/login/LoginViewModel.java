@@ -50,21 +50,6 @@ public class LoginViewModel extends ViewModel {
             }
         });
     }
-    public void insertarUsuario(){
-        String correo=mutableCorreo.getValue();
-        String contrasenia=mutableContrasenia.getValue();
-        miServicio.insertarUsuario(correo,contrasenia).enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                iloginInterface.respuestaInsertUsuario();
-            }
-
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-
-            }
-        });
-    }
     public void comprobarUsuario(){
         String correo=mutableCorreo.getValue();
         String contrasenia = mutableContrasenia.getValue();
@@ -91,6 +76,9 @@ public class LoginViewModel extends ViewModel {
                 Log.e("errorR", "onFailure: "+t);
             }
         });
+    }
+    public void mandarPaginaRegistro(){
+    iloginInterface.mandarPaginaRegistro();
     }
     public MutableLiveData<ArrayList<Usuario>> getListaUsuariosMutable() {
         return listaUsuariosMutable;

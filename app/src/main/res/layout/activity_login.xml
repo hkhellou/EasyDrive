@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable
             name="LoginViewModel"
@@ -7,63 +10,113 @@
         <import type="android.util.Patterns"/>
         <import type="android.text.TextUtils"/>
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".login.LoginActivity">
 
-    <TextView
-        android:id="@+id/txtLoginTittle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="@string/txtLoginTittle"
-        android:textSize="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundTint="#FFFFFF"
+        tools:context=".login.LoginActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="378dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="165dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLoginTittle">
+        <TextView
+            android:id="@+id/txtLoginTittle"
+            android:layout_width="255dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="54dp"
+            android:text="@string/txtLoginTittle"
+            android:textColor="@color/colorNaranja"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toTopOf="@+id/txtLoginEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/txtLoginEmail"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/colorNaranja"
             android:ems="10"
             android:hint="@string/txtLoginEmail"
+            android:inputType="textEmailSubject"
             android:text="@={LoginViewModel.mutableCorreo}"
-            android:inputType="textPersonName" />
+            android:textColorLink="@color/colorAzulOscuro"
+            android:textCursorDrawable="@color/colorAzulOscuro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLoginTittle" />
 
         <EditText
             android:id="@+id/txtLoginPass"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/colorNaranja"
             android:ems="10"
             android:hint="@string/txtLoginPass"
+            android:inputType="textWebPassword"
             android:text="@={LoginViewModel.mutableContrasenia}"
-            android:inputType="textWebPassword" />
+            android:textColorLink="#FFFFFF"
+            android:textCursorDrawable="@color/colorAzulOscuro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLoginEmail" />
 
         <Button
             android:id="@+id/btnEnterLogin"
-            android:layout_width="wrap_content"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="@{() -> LoginViewModel.comprobarUsuario()}"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/disenio_btn_redondo_relleno"
             android:enabled="@{!TextUtils.isEmpty(LoginViewModel.mutableCorreo)&amp;&amp;Patterns.EMAIL_ADDRESS.matcher(LoginViewModel.mutableCorreo).matches()}"
-            android:text="@string/btnEnterLogin" />
-    </LinearLayout>
+            android:foregroundTint="@color/colorNaranja"
+            android:onClick="@{() -> LoginViewModel.comprobarUsuario()}"
+            android:text="@string/btnEnterLogin"
+            android:textColor="@color/colorCrema"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLoginPass" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnRegister"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/disenio_boton_redondo"
+            android:onClick="@{() -> LoginViewModel.mandarPaginaRegistro()}"
+            android:text="@string/btnRegister"
+            android:textColor="@color/colorNaranja"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEnterLogin" />
+
+        <ImageView
+            android:id="@+id/logoEasyDrive"
+            android:layout_width="187dp"
+            android:layout_height="105dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtLoginTittle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.642"
+            app:srcCompat="@drawable/logo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

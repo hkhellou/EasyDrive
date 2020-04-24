@@ -18,6 +18,8 @@ import com.example.easydrive10.MainViewModel;
 import com.example.easydrive10.R;
 import com.example.easydrive10.databinding.ActivityLoginBinding;
 import com.example.easydrive10.pojos.Usuario;
+import com.example.easydrive10.principal.PrincipalActivity;
+import com.example.easydrive10.register.RegisterActivity;
 
 import java.util.ArrayList;
 
@@ -73,17 +75,12 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
             }
 //        });
 
-
-
-    @Override
-    public void respuestaInsertUsuario() {
-        Toast.makeText(this, "Insertado", Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     public void existeUsuario() {
-        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+        Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
         startActivity(i);
+        txtEmail.setText("");
+        txtPass.setText("");
 
     }
 
@@ -95,5 +92,11 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
     @Override
     public void falloServidor() {
         Toast.makeText(this, "Fallo del Servidor", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void mandarPaginaRegistro() {
+        Intent iPaginaRegistro = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(iPaginaRegistro);
     }
 }

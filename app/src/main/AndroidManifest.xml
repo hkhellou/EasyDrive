@@ -11,18 +11,20 @@
         android:networkSecurityConfig="@xml/configinternet"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name=".principal.PrincipalActivity"
+            android:label="@string/title_activity_principal"
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".register.RegisterActivity" />
         <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- CONFIG PARA PERMITIR EL ACCESO AL SERVIDOR MURGI -->
-        <activity android:name=".MainActivity">
-
-        </activity>
+        </activity> <!-- CONFIG PARA PERMITIR EL ACCESO AL SERVIDOR MURGI -->
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

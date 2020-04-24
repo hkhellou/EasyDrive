@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="RegisterViewModel"
+            type="com.example.easydrive10.register.RegisterViewModel" />
+        <import type="android.util.Patterns"/>
+        <import type="android.text.TextUtils"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register.RegisterActivity">
+
+        <TextView
+            android:id="@+id/txtRegisterTittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="80dp"
+            android:text="@string/txtRegisterTittle"
+            android:textColor="@color/colorNaranja"
+            android:textSize="36sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/txtRegisterEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/colorNaranja"
+            android:hint="@string/txtLoginEmail"
+            android:ems="10"
+            android:text="@={RegisterViewModel.mutableCorreoRegister}"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtRegisterTittle"
+            />
+
+        <EditText
+            android:id="@+id/txtRegisterPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/colorNaranja"
+            android:ems="10"
+            android:text="@={RegisterViewModel.mutablePassRegister}"
+            android:hint="@string/txtLoginPass"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtRegisterEmail" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/disenio_btn_redondo_relleno"
+            android:text="@string/btnRegister"
+            android:textColor="@color/colorCrema"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtRegisterPass"
+            android:enabled="@{!TextUtils.isEmpty(RegisterViewModel.mutableCorreoRegister)&amp;&amp;Patterns.EMAIL_ADDRESS.matcher(RegisterViewModel.mutableCorreoRegister).matches()}"
+            android:onClick="@{() -> RegisterViewModel.insertarUsuario()}"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
