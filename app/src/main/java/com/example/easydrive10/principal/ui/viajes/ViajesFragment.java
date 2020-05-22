@@ -50,7 +50,7 @@ public class ViajesFragment extends Fragment implements IViajesInterface {
         //LLAMAR AL METODO DEL VIEWMODEL QUE CARGA EL ARRAYLIST CON LOS DATOS DE LA BASE DE DATOS
         viewModel.getViajesCamionero();
         //BOTON FLOTANTE PARA ANYADIR NUEVOS VIAJES
-        btnFlotanteViajes = view.findViewById(R.id.btn_flot_añadirViaje);
+        btnFlotanteViajes = view.findViewById(R.id.btn_flot_anyadirViaje);
         btnFlotanteViajes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

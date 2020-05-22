@@ -6,23 +6,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".principal.ui.viajes.ViajesFragment">
+        tools:context=".principal.ui.gastos.GastosFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvListaViajes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/rvListaGastos"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintTop_toTopOf="parent">
 
         </androidx.recyclerview.widget.RecyclerView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn_flot_anyadirViaje"
+            android:id="@+id/btn_flot_anyadirGasto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -32,7 +30,7 @@
             android:focusable="true"
             app:backgroundTint="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/rvListaViajes"
-            app:srcCompat="@drawable/ic_boton_anyadir"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_boton_anyadir" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
