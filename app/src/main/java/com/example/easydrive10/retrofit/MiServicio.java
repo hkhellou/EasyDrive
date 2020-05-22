@@ -2,6 +2,7 @@ package com.example.easydrive10.retrofit;
 
 import com.example.easydrive10.pojos.Camionero;
 import com.example.easydrive10.pojos.Usuario;
+import com.example.easydrive10.pojos.Viajes;
 
 import java.util.ArrayList;
 
@@ -26,5 +27,9 @@ public interface MiServicio {
     Call<Void> insertarUsuario(@Query("correo")String SCorreo,@Query("contrasenia")String SContrasenia);
     @GET("comprobarUsuarioExiste.php")
     Call<Usuario> comprobarUsuario(@Query("correo")String SCorreo,@Query("contrasenia")String SContrasenia);
-
+    @GET("viajesCamionero.php")
+    Call<ArrayList<Viajes>> mostrartViajesCamionero(@Query("correo") String Scorreo);
+//    OBTENER CAMIONEROS POR CORREO
+    @GET("consultarCamionerosPorCorreo.php")
+    Call<Camionero> getCamionerosPorCorreo(@Query("correo") String Scorreo);
 }

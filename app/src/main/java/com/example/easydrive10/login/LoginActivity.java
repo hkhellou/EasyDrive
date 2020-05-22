@@ -1,67 +1,44 @@
 package com.example.easydrive10.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.easydrive10.MainActivity;
-import com.example.easydrive10.MainViewModel;
 import com.example.easydrive10.R;
 import com.example.easydrive10.databinding.ActivityLoginBinding;
-import com.example.easydrive10.pojos.Usuario;
 import com.example.easydrive10.principal.PrincipalActivity;
 import com.example.easydrive10.register.RegisterActivity;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 public class LoginActivity extends AppCompatActivity implements IloginInterface {
     private LoginViewModel viewModel;
     private Button btnLoginEnter;
     private TextView txtEmail,txtPass;
     private  boolean existe=false;
+    private ActivityLoginBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityLoginBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_login);
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_login);
+        if(recuperarUsuarioPreferencias()){
+//            SI EL SWITCH ESTA ACTIVADO ENTRO DIRECTAMENTE SIN PASAR POR EL LOGIN
+            Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
+            startActivity(i);
+            this.finish();
+        }
         btnLoginEnter= findViewById(R.id.btnEnterLogin);
         txtEmail = findViewById(R.id.txtLoginEmail);
         txtPass = findViewById(R.id.txtLoginPass);
         viewModel = new ViewModelProvider(this,new LoginViewModelFactory(this,this)).get(LoginViewModel.class);
-//        btnLoginEnter.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                viewModel.getListaUsuariosMutable().observe(LoginActivity.this, new Observer<ArrayList<Usuario>>() {
-//                    @Override
-//                    public void onChanged(ArrayList<Usuario> usuarios) {
-//                        String email=txtEmail.getText().toString();
-//                        String pass=txtPass.getText().toString();
-//                        for(Usuario user : usuarios){
-//                            if(user.getCorreo().equals(email)){
-//                                if(user.getContrasenia().equals(pass)){
-//                                    existe=true;
-//                                }
-//                            }
-//                        }
-//                    }
-//                });
-//                viewModel.getUsuarios();
-//                if(existe){
-//                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
-//                    startActivity(i);
-//                }
-//                existe=false;
-//                viewModel.getMutableCorreo().setValue(txtEmail.getText().toString());
-//                viewModel.getMutableContrasenia().setValue(txtPass.getText().toString());
-//                viewModel.insertarUsuario();
         viewModel.getMutableCorreo().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
@@ -70,6 +47,7 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
                 }
             }
         });
+        guardarCredenciales();
            binding.setLoginViewModel(viewModel);
            binding.setLifecycleOwner(this);
             }
@@ -77,10 +55,16 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
 
     @Override
     public void existeUsuario() {
+        String correo = viewModel.getMutableCorreo().getValue();
         Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
+        i.putExtra("correoExtra",correo);
+        guardarUsuarioPreferencias();
+        guardarCredenciales();
         startActivity(i);
-        txtEmail.setText("");
-        txtPass.setText("");
+//        PARA FINALIZAR LA ACTIVIDAD ACTUAL Y DEJAR SOLO LO QUE SE VA A ABRIR
+        this.finish();
+//        txtEmail.setText("");
+//        txtPass.setText("");
 
     }
 
@@ -98,5 +82,33 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
     public void mandarPaginaRegistro() {
         Intent iPaginaRegistro = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(iPaginaRegistro);
+    }
+
+    @Override
+    public void guardarUsuarioPreferencias() {
+//        AQUI GUARDO EN LA CARPETA DE PREFERENCIAS EL CORREO Y LA CONTRASEÑA DEL USUARIO
+        SharedPreferences sharedPreferences = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("correo",viewModel.getMutableCorreo().getValue());
+        editor.putString("contrasenia",viewModel.getMutableContrasenia().getValue());
+//        editor.putBoolean("sesion",true);
+//        PARA GUARDAR TODOS LOS CAMBIOS
+        editor.commit();
+    }
+
+    @Override
+    public boolean recuperarUsuarioPreferencias() {
+        SharedPreferences sharedPreferences  = getSharedPreferences("preferenciasUsuario",Context.MODE_PRIVATE);
+        boolean sesion =sharedPreferences.getBoolean("sesion",false);
+        return sesion;
+    }
+
+    @Override
+    public void guardarCredenciales() {
+        SharedPreferences sharedPreferences = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("sesion", binding.switchCredenciales.isChecked());
+        editor.commit();
+//        recuperarUsuarioPreferencias();
     }
 }

@@ -1,15 +1,15 @@
 package com.example.easydrive10;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.easydrive10.pojos.Camionero;
 
 import java.util.ArrayList;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 public class MainActivity extends AppCompatActivity implements IMainInterface{
     private MainViewModel viewModel;
@@ -26,13 +26,6 @@ public class MainActivity extends AppCompatActivity implements IMainInterface{
                 texto.setText(camionero.toString());
             }
         });
- //       viewModel.getPresidentes();
-//        viewModel.getPresidenteMutable().observe(this, new Observer<Presidente>() {
-//            @Override
-//            public void onChanged(Presidente presidente) {
-//                texto.setText(presidente.toString());
-//            }
-//        });
         viewModel.getPresidente();
    }
 

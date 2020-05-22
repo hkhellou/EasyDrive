@@ -1,14 +1,14 @@
-package com.example.easydrive10.principal.ui.gallery;
+package com.example.easydrive10.principal.ui.gastos;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class GastosViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public GastosViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
     }

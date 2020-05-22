@@ -5,4 +5,7 @@ public interface IloginInterface{
     void noExisteUsuario();
     void falloServidor();
     void mandarPaginaRegistro();
+    void guardarUsuarioPreferencias();
+    boolean recuperarUsuarioPreferencias();
+    void guardarCredenciales();
 }

@@ -4,82 +4,142 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Camionero {
-    @SerializedName("Id")
+    @SerializedName("Correo")
     @Expose
-    private String id;
+    private String correo;
+    @SerializedName("Contrasenia")
+    @Expose
+    private String contrasenia;
     @SerializedName("Nombre")
     @Expose
-    private String nombre;
+    private Object nombre;
     @SerializedName("Apellidos")
     @Expose
-    private String apellidos;
+    private Object apellidos;
     @SerializedName("Dni")
     @Expose
-    private String dni;
+    private Object dni;
     @SerializedName("Fec_Nacimiento")
     @Expose
-    private String fecNacimiento;
+    private Object fecNacimiento;
     @SerializedName("Camion")
     @Expose
-    private String camion;
+    private Object camion;
+    @SerializedName("Empresa")
+    @Expose
+    private Object empresa;
+    @SerializedName("Partes")
+    @Expose
+    private Object partes;
+    @SerializedName("Gastos")
+    @Expose
+    private Object gastos;
+    @SerializedName("Viajes")
+    @Expose
+    private Object viajes;
 
-    public String getId() {
-        return id;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public String getNombre() {
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public Object getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(Object nombre) {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
+    public Object getApellidos() {
         return apellidos;
     }
 
-    public void setApellidos(String apellidos) {
+    public void setApellidos(Object apellidos) {
         this.apellidos = apellidos;
     }
 
-    public String getDni() {
+    public Object getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(Object dni) {
         this.dni = dni;
     }
 
-    public String getFecNacimiento() {
+    public Object getFecNacimiento() {
         return fecNacimiento;
     }
 
-    public void setFecNacimiento(String fecNacimiento) {
+    public void setFecNacimiento(Object fecNacimiento) {
         this.fecNacimiento = fecNacimiento;
     }
 
-    public String getCamion() {
+    public Object getCamion() {
         return camion;
     }
 
-    public void setCamion(String camion) {
+    public void setCamion(Object camion) {
         this.camion = camion;
+    }
+
+    public Object getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Object empresa) {
+        this.empresa = empresa;
+    }
+
+    public Object getPartes() {
+        return partes;
+    }
+
+    public void setPartes(Object partes) {
+        this.partes = partes;
+    }
+
+    public Object getGastos() {
+        return gastos;
+    }
+
+    public void setGastos(Object gastos) {
+        this.gastos = gastos;
+    }
+
+    public Object getViajes() {
+        return viajes;
+    }
+
+    public void setViajes(Object viajes) {
+        this.viajes = viajes;
     }
 
     @Override
     public String toString() {
         return "Camionero{" +
-                "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellidos='" + apellidos + '\'' +
-                ", dni='" + dni + '\'' +
-                ", fecNacimiento='" + fecNacimiento + '\'' +
-                ", camion='" + camion + '\'' +
+                "correo='" + correo + '\'' +
+                ", contrasenia='" + contrasenia + '\'' +
+                ", nombre=" + nombre +
+                ", apellidos=" + apellidos +
+                ", dni=" + dni +
+                ", fecNacimiento=" + fecNacimiento +
+                ", camion=" + camion +
+                ", empresa=" + empresa +
+                ", partes=" + partes +
+                ", gastos=" + gastos +
+                ", viajes=" + viajes +
                 '}';
     }
 }

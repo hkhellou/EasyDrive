@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:background="@drawable/disenio_btn_redondo_relleno"
             android:enabled="@{!TextUtils.isEmpty(LoginViewModel.mutableCorreo)&amp;&amp;Patterns.EMAIL_ADDRESS.matcher(LoginViewModel.mutableCorreo).matches()}"
@@ -85,7 +85,7 @@
             android:textColor="@color/colorCrema"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtLoginPass" />
+            app:layout_constraintTop_toBottomOf="@+id/switchCredenciales" />
 
         <Button
             android:id="@+id/btnRegister"
@@ -93,12 +93,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
+            android:layout_marginBottom="214dp"
             android:background="@drawable/disenio_boton_redondo"
             android:onClick="@{() -> LoginViewModel.mandarPaginaRegistro()}"
             android:text="@string/btnRegister"
             android:textColor="@color/colorNaranja"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnEnterLogin" />
@@ -117,6 +119,29 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.642"
             app:srcCompat="@drawable/logo" />
+
+        <Switch
+            android:id="@+id/switchCredenciales"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="31dp"
+            android:checked="false"
+            android:theme="@style/coloresSwitch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLoginPass" />
+
+        <TextView
+            android:id="@+id/txtRecordarCredenciales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/RecordarAcceso"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLoginPass" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
