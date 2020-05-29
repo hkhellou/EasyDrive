@@ -11,9 +11,10 @@
         android:label="@string/menu_viajes"
         tools:layout="@layout/fragment_viajes">
         <action
-            android:id="@+id/action_nav_viajes_to_NuevoViajeFragment"
+            android:id="@+id/action_nav_viajes_to_NuevoViajeFragment3"
             app:destination="@id/NuevoViajeFragment"
-            app:popUpTo="@id/NuevoViajeFragment" />
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit" />
     </fragment>
 
     <fragment
@@ -30,6 +31,6 @@
     <fragment
         android:id="@+id/NuevoViajeFragment"
         android:name="com.example.easydrive10.principal.ui.viajes.NuevoViajeFragment"
-        android:label="fragment_nav_nuevo_viaje"
+        android:label="Nuevo Viaje"
         tools:layout="@layout/fragment_nav_nuevo_viaje" />
 </navigation>

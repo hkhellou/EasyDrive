@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
 //            SI EL SWITCH ESTA ACTIVADO ENTRO DIRECTAMENTE SIN PASAR POR EL LOGIN
             Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
             startActivity(i);
-            this.finish();
         }
         btnLoginEnter= findViewById(R.id.btnEnterLogin);
         txtEmail = findViewById(R.id.txtLoginEmail);
@@ -47,7 +46,6 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
                 }
             }
         });
-        guardarCredenciales();
            binding.setLoginViewModel(viewModel);
            binding.setLifecycleOwner(this);
             }
@@ -62,7 +60,6 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
         guardarCredenciales();
         startActivity(i);
 //        PARA FINALIZAR LA ACTIVIDAD ACTUAL Y DEJAR SOLO LO QUE SE VA A ABRIR
-        this.finish();
 //        txtEmail.setText("");
 //        txtPass.setText("");
 

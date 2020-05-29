@@ -1,6 +1,7 @@
 package com.example.easydrive10.principal.ui.gastos;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.easydrive10.R;
@@ -13,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AdaptadorRecicledViewGastos extends RecyclerView.Adapter<AdaptadorRecicledViewGastos.ViewHolder> {
+public class AdaptadorRecicledViewGastos extends RecyclerView.Adapter<AdaptadorRecicledViewGastos.ViewHolder> implements ViewGroup.OnClickListener {
     private List<Gastos> listaGastos;
 
     public AdaptadorRecicledViewGastos(List<Gastos> listaGastos) {
@@ -37,6 +38,11 @@ public class AdaptadorRecicledViewGastos extends RecyclerView.Adapter<AdaptadorR
     public int getItemCount() {
         //        CANTIDAD DE ELEMENTOS QUE TENDRÁ QUE PROCESAR EL RECYCLER
         return listaGastos.size();
+    }
+
+    @Override
+    public void onClick(View view) {
+        
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

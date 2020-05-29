@@ -44,7 +44,7 @@ public class PrincipalActivity extends AppCompatActivity implements IPrincipalIn
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_viajes, R.id.nav_gastos, R.id.nav_slideshow)
+                R.id.nav_viajes, R.id.nav_gastos, R.id.nav_slideshow,R.id.NuevoViajeFragment,R.id.btn_cerrarSesion)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -98,7 +98,6 @@ public class PrincipalActivity extends AppCompatActivity implements IPrincipalIn
         viewModel.getCamionero();
         camionero.setCorreo(viewModel.getMutableCorreoPrincipal().getValue());
     }
-
     @Override
     public void cerrarSesion() {
         SharedPreferences sharedPreferences = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
@@ -111,5 +110,6 @@ public class PrincipalActivity extends AppCompatActivity implements IPrincipalIn
     public Camionero getCamionero() {
         return camionero;
     }
+
 
 }

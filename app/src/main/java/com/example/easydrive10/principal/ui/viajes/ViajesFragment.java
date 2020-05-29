@@ -21,15 +21,16 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ViajesFragment extends Fragment implements IViajesInterface {
-    private  PrincipalActivity principalActivity = new PrincipalActivity();
+    private PrincipalActivity principalActivity = new PrincipalActivity();
     private FragmentViajesBinding binding;
     AdaptadorRecicledViewViajes adaptadorRecicledViewViajes;
     private ViajesViewModel viewModel;
-    private  FloatingActionButton btnFlotanteViajes;
+    private FloatingActionButton btnFlotanteViajes;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -54,15 +55,15 @@ public class ViajesFragment extends Fragment implements IViajesInterface {
         btnFlotanteViajes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NuevoViajeFragment nuevoViajeFragment = new NuevoViajeFragment();
-                getParentFragmentManager().beginTransaction()
-                        .replace(R.id.drawer_layout,nuevoViajeFragment,nuevoViajeFragment.getTag())
-                        .commit();
+//                NuevoViajeFragment nuevoViajeFragment = new NuevoViajeFragment();
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                fragmentManager.beginTransaction().replace(R.id.drawer_layout, nuevoViajeFragment).addToBackStack(null).commit();
+                Navigation.findNavController(view).navigate(R.id.NuevoViajeFragment);
             }
         });
         //binding.setViajesViewModel(viewModel);
         binding.rvListaViajes.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//            ESTE METODO ES PARA OCULTAR O MOSTRAR EL BOTON FLOTANTE CUANDO SE HAGA SCROLL EN LA LISTA
+            //            ESTE METODO ES PARA OCULTAR O MOSTRAR EL BOTON FLOTANTE CUANDO SE HAGA SCROLL EN LA LISTA
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 if (dy > 0)
@@ -87,7 +88,7 @@ public class ViajesFragment extends Fragment implements IViajesInterface {
     @Override
     public void recibirCorreoPreferencias() {
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
-        String correoUsuario = sharedPreferences.getString("correo","prueba@gmail.com");
+        String correoUsuario = sharedPreferences.getString("correo", "prueba@gmail.com");
         viewModel.getCorreoUsuarioPreferencias().setValue(correoUsuario);
         //txt.setText(viewModel.getCorreoUsuarioPreferencias().getValue());
         principalActivity.getCamionero().setCorreo(correoUsuario);
