@@ -5,15 +5,101 @@
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txtNuevoViajeTittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="holalalalalala"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/TituloNuevoViaje"
+            android:textColor="@color/colorNaranja"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/txtPaisDestinoNviaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/colorNaranja"
+            android:ems="10"
+            android:hint="@string/PaisNuevjoVIaje"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNuevoViajeTittle" />
+
+        <EditText
+            android:id="@+id/txtEmpresaDestinoNviaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/colorNaranja"
+            android:ems="10"
+            android:hint="@string/EmpresaDestino"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPaisDestinoNviaje" />
+
+        <EditText
+            android:id="@+id/txtDireccionDestinoNviaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/colorNaranja"
+            android:ems="10"
+            android:hint="@string/DireccionDestino"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtEmpresaDestinoNviaje" />
+
+        <EditText
+            android:id="@+id/datePickerFechaSalida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/colorNaranja"
+            android:ems="10"
+            android:hint="@string/FechaSalidaNuevoViaje"
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDireccionDestinoNviaje" />
+
+        <EditText
+            android:id="@+id/datePickerFechaLlegada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/colorNaranja"
+            android:ems="10"
+            android:hint="@string/FechaLlegadaNuevoViaje"
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datePickerFechaSalida" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

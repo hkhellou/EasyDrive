@@ -30,7 +30,7 @@
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/NuevoViajeFragment"
-        android:name="com.example.easydrive10.principal.ui.viajes.NuevoViajeFragment"
+        android:name="com.example.easydrive10.principal.ui.viajes.nuevoviaje.NuevoViajeFragment"
         android:label="Nuevo Viaje"
         tools:layout="@layout/fragment_nav_nuevo_viaje" />
 </navigation>

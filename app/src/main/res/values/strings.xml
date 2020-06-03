@@ -22,4 +22,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="RecordarAcceso">Recordar Credenciales</string>
     <string name="TituloGasto">Nombre</string>
+    <string name="TituloNuevoViaje">Insertar nuevo viaje</string>
+    <string name="PaisNuevjoVIaje">Pais de destino</string>
+    <string name="EmpresaDestino">Empresa de destino</string>
+    <string name="DireccionDestino">Dirección de destino</string>
+    <string name="FechaSalidaNuevoViaje">Fecha de salida</string>
+    <string name="FechaLlegadaNuevoViaje">Fecha de llegada</string>
 </resources>
