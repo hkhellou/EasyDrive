@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -44,13 +45,23 @@ public class PrincipalActivity extends AppCompatActivity implements IPrincipalIn
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_viajes, R.id.nav_gastos, R.id.nav_slideshow,R.id.NuevoViajeFragment,R.id.btn_cerrarSesion)
+                R.id.nav_viajes, R.id.nav_gastos, R.id.nav_partes, R.id.NuevoViajeFragment, R.id.btn_cerrarSesion)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-//        LLAMO A LA VISTA DEL HEADER VIEW
+//        CON EL SIGUIENTE CÓDIGO SE CONSIGUE OBTENER EL ID DE UN MENU ITEM Y PODER CREAR UNA ACCION AL PULSAR EN ESTE
+        MenuItem btnCerrarSesion = navigationView.getMenu().findItem(R.id.btn_cerrarSesion);
+        btnCerrarSesion.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+//                LLAMO AL MÉTODO PARA CERRAR LA SESIÓN
+                cerrarSesion();
+                return false;
+            }
+        });
+        //        LLAMO A LA VISTA DEL HEADER VIEW
         View header = navigationView.getHeaderView(0);
         txtCorreoNav_Header = header.findViewById(R.id.txt_correoNavMenu);
         txtNombreNav_Header = header.findViewById(R.id.txtNombreHeader);
@@ -98,18 +109,17 @@ public class PrincipalActivity extends AppCompatActivity implements IPrincipalIn
         viewModel.getCamionero();
         camionero.setCorreo(viewModel.getMutableCorreoPrincipal().getValue());
     }
+
     @Override
     public void cerrarSesion() {
+//        MÉTODO PARA CERRAR LA SESIÓN ACTUAL DEL USUSARIO LO QUE HACE ES BORRAR LOS DATOS DE LA CARPETA SHARED COMPONENTS
         SharedPreferences sharedPreferences = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
         sharedPreferences.edit().clear().commit();
         Intent iLogin = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(iLogin);
-        this.finish();
     }
 
     public Camionero getCamionero() {
         return camionero;
     }
-
-
 }

@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="NViajeViewModel"
+            type="com.example.easydrive10.principal.ui.viajes.nuevoviaje.NuevoViajeViewModel" />
+
+        <import type="android.util.Patterns" />
+
+        <import type="android.text.TextUtils" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -31,8 +41,11 @@
             android:layout_marginEnd="32dp"
             android:backgroundTint="@color/colorNaranja"
             android:ems="10"
+            android:text="@={NViajeViewModel.paisDestinoMutable}"
             android:hint="@string/PaisNuevjoVIaje"
             android:inputType="textPersonName"
+            android:textColorHighlight="@color/design_default_color_secondary_variant"
+            android:textColorLink="@color/design_default_color_secondary_variant"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtNuevoViajeTittle" />
@@ -46,6 +59,7 @@
             android:layout_marginEnd="32dp"
             android:backgroundTint="@color/colorNaranja"
             android:ems="10"
+            android:text="@={NViajeViewModel.empresaDestinoMutable}"
             android:hint="@string/EmpresaDestino"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,6 +75,7 @@
             android:layout_marginEnd="32dp"
             android:backgroundTint="@color/colorNaranja"
             android:ems="10"
+            android:text="@={NViajeViewModel.direccionDestinoMutable}"
             android:hint="@string/DireccionDestino"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,11 +90,12 @@
             android:layout_marginTop="36dp"
             android:layout_marginEnd="32dp"
             android:backgroundTint="@color/colorNaranja"
-            android:ems="10"
-            android:hint="@string/FechaSalidaNuevoViaje"
-            android:inputType="date"
-            android:focusable="false"
             android:clickable="true"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="@string/FechaSalidaNuevoViaje"
+            android:text="@={NViajeViewModel.fechaSalidaMutable}"
+            android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDireccionDestinoNviaje" />
@@ -92,14 +108,47 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="32dp"
             android:backgroundTint="@color/colorNaranja"
-            android:ems="10"
-            android:hint="@string/FechaLlegadaNuevoViaje"
-            android:inputType="date"
-            android:focusable="false"
             android:clickable="true"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="@string/FechaLlegadaNuevoViaje"
+            android:text="@={NViajeViewModel.fechaLlegaMutable}"
+            android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datePickerFechaSalida" />
+
+        <Button
+            android:id="@+id/btnEnterNuevoViaje"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/disenio_btn_redondo_relleno"
+            android:foregroundTint="@color/colorNaranja"
+            android:text="@string/CrearNuevoViaje"
+            android:onClick="@{() -> NViajeViewModel.insertarViaje()}"
+            android:textColor="@color/colorCrema"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datePickerFechaLlegada" />
+
+        <Button
+            android:id="@+id/btnCancelNuevoViaje"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/disenio_boton_redondo"
+            android:text="@string/CancelarNuevoViaje"
+            android:textColor="@color/colorNaranja"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEnterNuevoViaje" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

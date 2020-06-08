@@ -24,13 +24,18 @@
         tools:layout="@layout/fragment_gastos" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.easydrive10.principal.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_viajes"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_partes"
+        android:name="com.example.easydrive10.principal.ui.partes.PartesFragment"
+        android:label="@string/menu_partes"
+        tools:layout="@layout/fragment_partes" />
     <fragment
         android:id="@+id/NuevoViajeFragment"
         android:name="com.example.easydrive10.principal.ui.viajes.nuevoviaje.NuevoViajeFragment"
         android:label="Nuevo Viaje"
         tools:layout="@layout/fragment_nav_nuevo_viaje" />
+    <fragment
+        android:id="@+id/nuevoParteFragment"
+        android:name="com.example.easydrive10.principal.ui.partes.nuevoparte.NuevoParteFragment"
+        android:label="Nuevo Parte"
+        tools:layout="@layout/fragment_nuevo_parte" />
 </navigation>

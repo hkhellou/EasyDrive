@@ -20,5 +20,8 @@
     <style name="coloresSwitch">
         <item name="colorControlActivated">@color/colorNaranja</item>
     </style>
-
+<!-- STYLE PARA EL COLOR DEL DATE PICKER-->
+    <style name="TemaDatePicker" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorNaranja</item>
+    </style>
 </resources>

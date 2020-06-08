@@ -22,40 +22,43 @@ import androidx.lifecycle.ViewModelProvider;
 public class LoginActivity extends AppCompatActivity implements IloginInterface {
     private LoginViewModel viewModel;
     private Button btnLoginEnter;
-    private TextView txtEmail,txtPass;
-    private  boolean existe=false;
+    private TextView txtEmail, txtPass;
+    private boolean existe = false;
     private ActivityLoginBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_login);
-        if(recuperarUsuarioPreferencias()){
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        if (recuperarUsuarioPreferencias()) {
 //            SI EL SWITCH ESTA ACTIVADO ENTRO DIRECTAMENTE SIN PASAR POR EL LOGIN
             Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
             startActivity(i);
-        }
-        btnLoginEnter= findViewById(R.id.btnEnterLogin);
-        txtEmail = findViewById(R.id.txtLoginEmail);
-        txtPass = findViewById(R.id.txtLoginPass);
-        viewModel = new ViewModelProvider(this,new LoginViewModelFactory(this,this)).get(LoginViewModel.class);
-        viewModel.getMutableCorreo().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                if(!Patterns.EMAIL_ADDRESS.matcher(s).matches()){
-                    txtEmail.setError("Inserte un correo valido");
+        } else {
+            btnLoginEnter = findViewById(R.id.btnEnterLogin);
+            txtEmail = findViewById(R.id.txtLoginEmail);
+            txtPass = findViewById(R.id.txtLoginPass);
+            viewModel = new ViewModelProvider(this, new LoginViewModelFactory(this, this)).get(LoginViewModel.class);
+            viewModel.getMutableCorreo().observe(this, new Observer<String>() {
+                @Override
+                public void onChanged(String s) {
+                    if (!Patterns.EMAIL_ADDRESS.matcher(s).matches()) {
+                        txtEmail.setError("Inserte un correo valido");
+                    }
                 }
-            }
-        });
-           binding.setLoginViewModel(viewModel);
-           binding.setLifecycleOwner(this);
-            }
+            });
+            binding.setLoginViewModel(viewModel);
+            binding.setLifecycleOwner(this);
+        }
+
+    }
 //        });
 
     @Override
     public void existeUsuario() {
         String correo = viewModel.getMutableCorreo().getValue();
         Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
-        i.putExtra("correoExtra",correo);
+        i.putExtra("correoExtra", correo);
         guardarUsuarioPreferencias();
         guardarCredenciales();
         startActivity(i);
@@ -86,8 +89,8 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
 //        AQUI GUARDO EN LA CARPETA DE PREFERENCIAS EL CORREO Y LA CONTRASEÑA DEL USUARIO
         SharedPreferences sharedPreferences = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("correo",viewModel.getMutableCorreo().getValue());
-        editor.putString("contrasenia",viewModel.getMutableContrasenia().getValue());
+        editor.putString("correo", viewModel.getMutableCorreo().getValue());
+        editor.putString("contrasenia", viewModel.getMutableContrasenia().getValue());
 //        editor.putBoolean("sesion",true);
 //        PARA GUARDAR TODOS LOS CAMBIOS
         editor.commit();
@@ -95,8 +98,8 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
 
     @Override
     public boolean recuperarUsuarioPreferencias() {
-        SharedPreferences sharedPreferences  = getSharedPreferences("preferenciasUsuario",Context.MODE_PRIVATE);
-        boolean sesion =sharedPreferences.getBoolean("sesion",false);
+        SharedPreferences sharedPreferences = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
+        boolean sesion = sharedPreferences.getBoolean("sesion", false);
         return sesion;
     }
 

@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.widget.DatePicker;
 
+import com.example.easydrive10.R;
+
 import java.util.Calendar;
 
 import androidx.fragment.app.DialogFragment;
@@ -27,7 +29,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this.getContext(), listener, year, month, day);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this.getContext(), R.style.TemaDatePicker, listener, year, month, day);
 //        PARA QUE NO SE PUEDA SELECCIONAR UNA FECHA ANTES DEL DIA ACTUAL
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
         // Create a new instance of DatePickerDialog and return it

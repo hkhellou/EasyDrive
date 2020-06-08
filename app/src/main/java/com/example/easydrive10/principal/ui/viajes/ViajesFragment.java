@@ -25,7 +25,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ViajesFragment extends Fragment implements IViajesInterface {
+public class ViajesFragment extends Fragment implements IViajesInterface{
     private PrincipalActivity principalActivity = new PrincipalActivity();
     private FragmentViajesBinding binding;
     AdaptadorRecicledViewViajes adaptadorRecicledViewViajes;

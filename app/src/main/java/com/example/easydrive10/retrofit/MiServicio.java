@@ -2,6 +2,7 @@ package com.example.easydrive10.retrofit;
 
 import com.example.easydrive10.pojos.Camionero;
 import com.example.easydrive10.pojos.Gastos;
+import com.example.easydrive10.pojos.Partes;
 import com.example.easydrive10.pojos.Usuario;
 import com.example.easydrive10.pojos.Viajes;
 
@@ -25,8 +26,10 @@ public interface MiServicio {
     //    CONSULTA USUARIOS
     @GET("consultaUsuarios.php")
     Call<ArrayList<Usuario>> getUsuarios();
+
     @GET("consularGastosCamioneroViaje.php")
     Call<ArrayList<Gastos>> obtenerGastosCamionero(@Query("correo") String Scorreo);
+
     //   INSERTAR EN BBDD
     @GET("insertarUsuario.php")
     Call<Void> insertarUsuario(@Query("correo") String SCorreo, @Query("contrasenia") String SContrasenia);
@@ -40,6 +43,12 @@ public interface MiServicio {
     //    OBTENER CAMIONEROS POR CORREO
     @GET("consultarCamionerosPorCorreo.php")
     Call<Camionero> getCamionerosPorCorreo(@Query("correo") String Scorreo);
-//   OBTENER GASTOS POR VIAJE Y CAMIONERO
 
+    //     OBTENER PARTES POR CAMIONERO
+    @GET("consultarPartes.php")
+    Call<ArrayList<Partes>> mostrarPartes(@Query("correo") String correo);
+
+    //   OBTENER GASTOS POR VIAJE Y CAMIONERO
+    @GET("insertarViajeCamionero.php")
+    Call<Void> insertarViajes(@Query("pais_destino") String PaisDestino, @Query("nombre_empresa_destino") String NombreEmpresaDestino, @Query("direccion") String DireccionDestino, @Query("fecha_salida") String FechaSalida, @Query("fecha_llegada") String FechaLlegada, @Query("camionero") String Camionero);
 }

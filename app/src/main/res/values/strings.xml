@@ -28,4 +28,9 @@
     <string name="DireccionDestino">Dirección de destino</string>
     <string name="FechaSalidaNuevoViaje">Fecha de salida</string>
     <string name="FechaLlegadaNuevoViaje">Fecha de llegada</string>
+    <string name="CrearNuevoViaje">Crear</string>
+    <string name="CancelarNuevoViaje">Cancelar</string>
+    <string name="CerrarSesion">Cerrar sesión</string>
+    <string name="Nombre">Nombre</string>
+    <string name="Camion">Camión</string>
 </resources>
