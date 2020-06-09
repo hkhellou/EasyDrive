@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtNuevoGasto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/NuevoViaje"
+            android:textColor="@color/colorNaranja"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/txtNombreGasto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/colorNaranja"
+            android:hint="@string/NombreGasto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNuevoGasto" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/Combustible"
+            android:textColor="@color/colorNaranja"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNombreGasto" />
+
+        <ImageButton
+            android:id="@+id/btnSumarCombustible"
+            android:layout_width="35dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/disenio_btn_redondo"
+            android:src="@drawable/ic_boton_anyadir"
+            app:layout_constraintEnd_toStartOf="@+id/btnTotalCombustible"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtValorCombustible"
+            app:layout_constraintTop_toBottomOf="@+id/txtNombreGasto" />
+
+        <ImageButton
+            android:id="@+id/btnTotalCombustible"
+            android:layout_width="35dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/disenio_btn_vacio_redondo"
+            android:src="@drawable/ic_igual"
+            app:layout_constraintEnd_toStartOf="@+id/txtTotalCombustible"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnSumarCombustible"
+            app:layout_constraintTop_toBottomOf="@+id/txtNombreGasto" />
+
+        <EditText
+            android:id="@+id/txtValorCombustible"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:backgroundTint="@color/colorNaranja"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/txtTotalCombustible"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:clickable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="number"
+            android:textColor="@color/colorAzulOscuro"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtValorCombustible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtValorCombustible" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/Total"
+            android:textColor="@color/colorNaranja"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNombreGasto" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

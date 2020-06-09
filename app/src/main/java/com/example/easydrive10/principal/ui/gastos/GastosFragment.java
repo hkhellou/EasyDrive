@@ -20,6 +20,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,6 +39,12 @@ public class GastosFragment extends Fragment implements IGastosInterface {
         oculatarBotonFlotante();
         recibirCorreoPreferencias();
         btnFlotanteGastos=binding.btnFlotAnyadirGasto;
+        btnFlotanteGastos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.nuevoGastoFragment);
+            }
+        });
         gastosViewModel.getListaGastosMutable().observe(getViewLifecycleOwner(), new Observer<ArrayList<Gastos>>() {
             @Override
             public void onChanged(ArrayList<Gastos> gastos) {

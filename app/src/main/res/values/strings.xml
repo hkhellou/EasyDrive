@@ -33,4 +33,8 @@
     <string name="CerrarSesion">Cerrar sesión</string>
     <string name="Nombre">Nombre</string>
     <string name="Camion">Camión</string>
+    <string name="NuevoViaje">Insertar nuevo gasto</string>
+    <string name="NombreGasto">Nombre del gasto</string>
+    <string name="Combustible">Combustible</string>
+    <string name="Total">Total</string>
 </resources>
