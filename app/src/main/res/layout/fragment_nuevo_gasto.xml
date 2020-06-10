@@ -7,6 +7,69 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <EditText
+            android:id="@+id/txtValorOtrosGastos"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:backgroundTint="@color/colorNaranja"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewComida2" />
+
+        <TextView
+            android:id="@+id/textViewComida2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/OtrosGastos"
+            android:textColor="@color/colorNaranja"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtValorComida" />
+
+        <ImageButton
+            android:id="@+id/btnSumarOtrosGastos"
+            android:layout_width="35dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/disenio_btn_redondo"
+            android:src="@drawable/ic_boton_anyadir"
+            app:layout_constraintEnd_toStartOf="@+id/btnTotalOtrosGastos"
+            app:layout_constraintStart_toEndOf="@+id/txtValorOtrosGastos"
+            app:layout_constraintTop_toBottomOf="@+id/btnSumarComida" />
+
+        <TextView
+            android:id="@+id/txtTotalOtrosGastos"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="32dp"
+            android:clickable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="number"
+            android:textColor="@color/colorAzulOscuro"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTotalComida" />
+
+        <ImageButton
+            android:id="@+id/btnTotalOtrosGastos"
+            android:layout_width="35dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/disenio_btn_vacio_redondo"
+            android:src="@drawable/ic_igual"
+            app:layout_constraintEnd_toStartOf="@+id/txtTotalOtrosGastos"
+            app:layout_constraintStart_toEndOf="@+id/btnSumarOtrosGastos"
+            app:layout_constraintTop_toBottomOf="@+id/btnTotalComida" />
+
         <TextView
             android:id="@+id/txtNuevoGasto"
             android:layout_width="wrap_content"
@@ -109,6 +172,156 @@
             android:textColor="@color/colorNaranja"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtNombreGasto" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/Peajes"
+            android:textColor="@color/colorNaranja"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtValorCombustible" />
+
+        <EditText
+            android:id="@+id/txtValorPeajes"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:backgroundTint="@color/colorNaranja"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/txtTotalPeajes"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="32dp"
+            android:clickable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="number"
+            android:textColor="@color/colorAzulOscuro"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTotalCombustible" />
+
+        <ImageButton
+            android:id="@+id/btnTotalPeajes"
+            android:layout_width="35dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/disenio_btn_vacio_redondo"
+            android:src="@drawable/ic_igual"
+            app:layout_constraintEnd_toStartOf="@+id/txtTotalPeajes"
+            app:layout_constraintStart_toEndOf="@+id/btnSumarPeajes"
+            app:layout_constraintTop_toBottomOf="@+id/btnTotalCombustible" />
+
+        <ImageButton
+            android:id="@+id/btnSumarPeajes"
+            android:layout_width="35dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/disenio_btn_redondo"
+            android:src="@drawable/ic_boton_anyadir"
+            app:layout_constraintEnd_toStartOf="@+id/btnTotalPeajes"
+            app:layout_constraintStart_toEndOf="@+id/txtValorPeajes"
+            app:layout_constraintTop_toBottomOf="@+id/btnSumarCombustible" />
+
+        <TextView
+            android:id="@+id/textViewComida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/Comida"
+            android:textColor="@color/colorNaranja"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtValorPeajes" />
+
+        <EditText
+            android:id="@+id/txtValorComida"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:backgroundTint="@color/colorNaranja"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewComida" />
+
+        <ImageButton
+            android:id="@+id/btnTotalComida"
+            android:layout_width="35dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/disenio_btn_vacio_redondo"
+            android:src="@drawable/ic_igual"
+            app:layout_constraintEnd_toStartOf="@+id/txtTotalComida"
+            app:layout_constraintStart_toEndOf="@+id/btnSumarComida"
+            app:layout_constraintTop_toBottomOf="@+id/btnTotalPeajes" />
+
+        <ImageButton
+            android:id="@+id/btnSumarComida"
+            android:layout_width="35dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/disenio_btn_redondo"
+            android:src="@drawable/ic_boton_anyadir"
+            app:layout_constraintEnd_toStartOf="@+id/btnTotalComida"
+            app:layout_constraintStart_toEndOf="@+id/txtValorComida"
+            app:layout_constraintTop_toBottomOf="@+id/btnSumarPeajes" />
+
+        <TextView
+            android:id="@+id/txtTotalComida"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="32dp"
+            android:clickable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="number"
+            android:textColor="@color/colorAzulOscuro"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTotalPeajes" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/Total"
+            android:textColor="@color/colorNaranja"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtValorOtrosGastos" />
+
+        <EditText
+            android:id="@+id/txtTotalGastos"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/textView10"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:backgroundTint="@color/colorNaranja"
+            app:layout_constraintTop_toTopOf="@+id/textView10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -37,4 +37,7 @@
     <string name="NombreGasto">Nombre del gasto</string>
     <string name="Combustible">Combustible</string>
     <string name="Total">Total</string>
+    <string name="Peajes">Peajes</string>
+    <string name="Comida">Comida</string>
+    <string name="OtrosGastos">Otros Gastos</string>
 </resources>
