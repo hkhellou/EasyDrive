@@ -6,23 +6,28 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.easydrive10.R;
 import com.example.easydrive10.databinding.FragmentNuevoGastoBinding;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 public class NuevoGastoFragment extends Fragment implements INuevoGastoInterface {
     private NuevoGastoViewModel nuevoGastoViewModel;
     private FragmentNuevoGastoBinding binding;
     private Double totalGastos, totalCombustible, totalPeajes, totalComida, totalOtrosGastos;
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_nuevo_gasto, container, false);
-        View view = binding.getRoot();
+        nuevoGastoViewModel = new ViewModelProvider(this, new NuevoGastoViewModelFactory(this, this)).get(NuevoGastoViewModel.class);
+        view = binding.getRoot();
         totalGastos = 0.0;
         totalCombustible = 0.0;
         totalPeajes = 0.0;
@@ -40,7 +45,7 @@ public class NuevoGastoFragment extends Fragment implements INuevoGastoInterface
 ////        CALCULAR OTROS GASTOS
 //        calcular(binding.btnSumarOtrosGastos, binding.txtValorOtrosGastos);
 //        total(binding.btnTotalOtrosGastos, binding.txtTotalOtrosGastos);
-
+        recibirCorreoPreferencias();
 //        CALCULAR COMBUSTIBLE
         binding.btnSumarCombustible.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +61,7 @@ public class NuevoGastoFragment extends Fragment implements INuevoGastoInterface
             @Override
             public void onClick(View view) {
                 binding.txtTotalCombustible.setText(totalCombustible.toString() + "€");
+                nuevoGastoViewModel.getCombustibleMutable().setValue(totalCombustible.toString());
             }
         });
 
@@ -74,6 +80,7 @@ public class NuevoGastoFragment extends Fragment implements INuevoGastoInterface
             @Override
             public void onClick(View view) {
                 binding.txtTotalPeajes.setText(totalPeajes.toString() + "€");
+                nuevoGastoViewModel.getPeajesMutable().setValue(totalPeajes.toString());
             }
         });
 //        CALCULAR COMIDA
@@ -91,6 +98,7 @@ public class NuevoGastoFragment extends Fragment implements INuevoGastoInterface
             @Override
             public void onClick(View view) {
                 binding.txtTotalComida.setText(totalComida.toString() + "€");
+                nuevoGastoViewModel.getComidaMutable().setValue(totalComida.toString());
             }
         });
 //        CALCULAR OTROS GASTOS
@@ -108,6 +116,21 @@ public class NuevoGastoFragment extends Fragment implements INuevoGastoInterface
             @Override
             public void onClick(View view) {
                 binding.txtTotalOtrosGastos.setText(totalOtrosGastos.toString() + "€");
+                nuevoGastoViewModel.getOtros_gastosMutable().setValue(totalOtrosGastos.toString());
+            }
+        });
+        binding.btnTotalGastos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nuevoGastoViewModel.getTotal_gastosMutable().setValue(String.valueOf(calcularTotalGastos()));
+                binding.txtTotalGastos.setText(nuevoGastoViewModel.getTotal_gastosMutable().getValue());
+            }
+        });
+        binding.btnCrearNuevoGasto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nuevoGastoViewModel.getNombreMutable().setValue(binding.txtNombreGasto.getText().toString());
+                nuevoGastoViewModel.insertarGastos();
             }
         });
         binding.setLifecycleOwner(this);
@@ -118,8 +141,20 @@ public class NuevoGastoFragment extends Fragment implements INuevoGastoInterface
     public void recibirCorreoPreferencias() {
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
         String correoUsuario = sharedPreferences.getString("correo", "prueba@gmail.com");
+        nuevoGastoViewModel.getCamioneroMutable().setValue(correoUsuario);
     }
 
+    @Override
+    public void respuestaInsertarViaje() {
+        Toast.makeText(getContext(), "Gasto insertado", Toast.LENGTH_SHORT).show();
+        Navigation.findNavController(view).navigate(R.id.nav_gastos);
+    }
+
+    public double calcularTotalGastos() {
+        double total = 0;
+        total = totalCombustible + totalPeajes + totalComida + totalOtrosGastos;
+        return total;
+    }
 //    public void calcular(ImageButton imageButton, final EditText editText) {
 //        imageButton.setOnClickListener(new View.OnClickListener() {
 //            @Override

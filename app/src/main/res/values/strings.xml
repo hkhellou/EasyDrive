@@ -40,4 +40,5 @@
     <string name="Peajes">Peajes</string>
     <string name="Comida">Comida</string>
     <string name="OtrosGastos">Otros Gastos</string>
+    <string name="Calcular">Calcular</string>
 </resources>

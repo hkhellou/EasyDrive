@@ -51,4 +51,7 @@ public interface MiServicio {
     //   OBTENER GASTOS POR VIAJE Y CAMIONERO
     @GET("insertarViajeCamionero.php")
     Call<Void> insertarViajes(@Query("pais_destino") String PaisDestino, @Query("nombre_empresa_destino") String NombreEmpresaDestino, @Query("direccion") String DireccionDestino, @Query("fecha_salida") String FechaSalida, @Query("fecha_llegada") String FechaLlegada, @Query("camionero") String Camionero);
+//    INSERTAR GASTOS
+    @GET("insertarGastos.php")
+    Call<Void> insertarGastos(@Query("nombre") String nombre, @Query("combustible") double combustible, @Query("peajes") double peajes, @Query("comida") double comida, @Query("otros_gastos") double otros_gastos, @Query("camionero") String camionero,@Query("total_gastos") double total_gastos);
 }

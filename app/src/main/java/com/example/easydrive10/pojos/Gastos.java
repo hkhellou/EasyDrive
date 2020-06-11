@@ -22,9 +22,6 @@ public class Gastos {
     @SerializedName("Camionero")
     @Expose
     private String camionero;
-    @SerializedName("Viaje")
-    @Expose
-    private String viaje;
 
     public String getNombre() {
         return nombre;
@@ -74,14 +71,6 @@ public class Gastos {
         this.camionero = camionero;
     }
 
-    public String getViaje() {
-        return viaje;
-    }
-
-    public void setViaje(String viaje) {
-        this.viaje = viaje;
-    }
-
     @Override
     public String toString() {
         return "Gastos{" +
@@ -91,7 +80,6 @@ public class Gastos {
                 ", comida='" + comida + '\'' +
                 ", otrosGastos='" + otrosGastos + '\'' +
                 ", camionero='" + camionero + '\'' +
-                ", viaje='" + viaje + '\'' +
                 '}';
     }
 }
