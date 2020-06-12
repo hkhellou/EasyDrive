@@ -54,5 +54,7 @@ public interface MiServicio {
 //    INSERTAR GASTOS
     @GET("insertarGastos.php")
     Call<Void> insertarGastos(@Query("nombre") String nombre, @Query("combustible") double combustible, @Query("peajes") double peajes, @Query("comida") double comida, @Query("otros_gastos") double otros_gastos, @Query("camionero") String camionero,@Query("total_gastos") double total_gastos);
-
+//  INSERTAR PARTES
+    @GET("insertarNuevoParte.php")
+    Call<Void> insertarParte(@Query("localizacion") String localizacion, @Query("descripcion") String descripcion, @Query("camion") String camion, @Query("camionero") String camionero, @Query("nombre") String nombre);
 }

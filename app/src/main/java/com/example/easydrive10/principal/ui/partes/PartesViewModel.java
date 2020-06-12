@@ -34,8 +34,11 @@ public class PartesViewModel extends ViewModel {
         miServicio.mostrarPartes(correo).enqueue(new Callback<ArrayList<Partes>>() {
             @Override
             public void onResponse(Call<ArrayList<Partes>> call, Response<ArrayList<Partes>> response) {
-                ArrayList lista = response.body();
-                listaMutablePartes.setValue(lista);
+                ArrayList listaPartes = response.body();
+                listaMutablePartes.setValue(listaPartes);
+                if(listaPartes.size()==0){
+                    iPartesInterface.listaVacia();
+                }
             }
 
             @Override

@@ -89,4 +89,9 @@ public class GastosFragment extends Fragment implements IGastosInterface {
             }
         });
     }
+
+    @Override
+    public void listaVacia() {
+        binding.txtNoGasttos.setText("Ups!! no tienes ningún gasto realizado");
+    }
 }

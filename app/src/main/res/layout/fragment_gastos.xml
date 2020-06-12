@@ -8,6 +8,19 @@
         android:layout_height="match_parent"
         tools:context=".principal.ui.gastos.GastosFragment">
 
+        <TextView
+            android:id="@+id/txtNoGasttos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAzulOscuro"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/rvListaGastos"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/rvListaGastos"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvListaGastos"
             android:layout_width="0dp"

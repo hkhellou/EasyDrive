@@ -129,15 +129,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtUbicacion" />
 
-                <Spinner
-                    android:id="@+id/spinnerCamion"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="39dp"
-                    android:layout_marginEnd="32dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnUbicacion" />
-
                 <ScrollView
                     android:id="@+id/scrollView4"
                     android:layout_width="match_parent"
@@ -175,6 +166,17 @@
                     android:background="@drawable/disenio_btn_redondo_relleno"
                     android:textColor="#FFFFFF"
                     app:layout_constraintTop_toBottomOf="@+id/scrollView4" />
+
+                <TextView
+                    android:id="@+id/txtCamion"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="42dp"
+                    android:layout_marginEnd="32dp"
+                    android:textColor="@color/colorAzulOscuro"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtUbicacion" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

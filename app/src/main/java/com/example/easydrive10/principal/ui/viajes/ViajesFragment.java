@@ -94,4 +94,9 @@ public class ViajesFragment extends Fragment implements IViajesInterface{
         principalActivity.getCamionero().setCorreo(correoUsuario);
         //txt.setText(principalActivity.getCamionero().getCorreo());
     }
+
+    @Override
+    public void listaVacia() {
+        binding.txtNoViajes.setText("Aún no tienes ningún viaje programado.");
+    }
 }

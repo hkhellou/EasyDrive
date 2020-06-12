@@ -81,4 +81,10 @@ public class PartesFragment extends Fragment implements IPartesInterface {
         String correoUsuario = sharedPreferences.getString("correo", "prueba@gmail.com");
         partesViewModel.getMutableCorreo().setValue(correoUsuario);
     }
+
+    @Override
+    public void listaVacia() {
+    binding.txtNoPartes.setText(R.string.MensajeNoPartes);
+
+    }
 }

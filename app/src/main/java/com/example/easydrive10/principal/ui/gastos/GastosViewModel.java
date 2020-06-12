@@ -35,7 +35,10 @@ public class GastosViewModel extends ViewModel {
             @Override
             public void onResponse(Call<ArrayList<Gastos>> call, Response<ArrayList<Gastos>> response) {
                 ArrayList<Gastos> listaGastos = response.body();
-                getListaGastosMutable().setValue(listaGastos);
+                listaGastosMutable.setValue(listaGastos);
+                if(listaGastos.size()==0){
+                    iGastosInterface.listaVacia();
+                }
             }
 
             @Override

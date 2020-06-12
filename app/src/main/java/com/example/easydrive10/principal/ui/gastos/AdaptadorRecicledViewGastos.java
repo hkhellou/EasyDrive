@@ -32,6 +32,7 @@ public class AdaptadorRecicledViewGastos extends RecyclerView.Adapter<AdaptadorR
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.itemsListaGastosBinding.txtNombreGasto.setText(listaGastos.get(position).getNombre());
+        holder.itemsListaGastosBinding.txtTotalGastos.setText(listaGastos.get(position).getTotalGastos()+"€");
     }
 
     @Override

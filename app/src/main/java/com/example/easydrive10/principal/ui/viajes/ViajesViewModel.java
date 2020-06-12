@@ -36,6 +36,9 @@ public class ViajesViewModel extends ViewModel {
             public void onResponse(Call<ArrayList<Viajes>> call, Response<ArrayList<Viajes>> response) {
                 ArrayList listaViajes = response.body();
                 listaViajesCamioneroMutable.setValue(listaViajes);
+                if(listaViajes.size()==0){
+                    iViajesInterface.listaVacia();
+                }
             }
 
             @Override

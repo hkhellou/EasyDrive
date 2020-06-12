@@ -22,6 +22,9 @@ public class Gastos {
     @SerializedName("Camionero")
     @Expose
     private String camionero;
+    @SerializedName("Total_Gastos")
+    @Expose
+    private String totalGastos;
 
     public String getNombre() {
         return nombre;
@@ -69,6 +72,14 @@ public class Gastos {
 
     public void setCamionero(String camionero) {
         this.camionero = camionero;
+    }
+
+    public String getTotalGastos() {
+        return totalGastos;
+    }
+
+    public void setTotalGastos(String totalGastos) {
+        this.totalGastos = totalGastos;
     }
 
     @Override
