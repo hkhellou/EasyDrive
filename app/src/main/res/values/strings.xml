@@ -41,4 +41,10 @@
     <string name="Comida">Comida</string>
     <string name="OtrosGastos">Otros Gastos</string>
     <string name="Calcular">Calcular</string>
+    <string name="NuevoParte">Insertar nuevo parte</string>
+    <string name="insertarNuevoParte">Nombre del parte</string>
+    <string name="ElegirFoto">Elegir foto</string>
+    <string name="SubirFoto">Subir foto</string>
+    <string name="Ubicacion">Ubicación</string>
+    <string name="Descripcion">Descripción</string>
 </resources>

@@ -2,9 +2,183 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txtNuevoParteTit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginEnd="32dp"
+                    android:text="@string/NuevoParte"
+                    android:textColor="@color/colorNaranja"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/txtNombreParte"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:backgroundTint="@color/colorNaranja"
+                    android:ems="10"
+                    android:hint="@string/insertarNuevoParte"
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNuevoParteTit" />
+
+                <TextView
+                    android:id="@+id/txtElegirFoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/ElegirFoto"
+                    android:textColor="@color/colorAzulOscuro"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreParte" />
+
+                <ImageButton
+                    android:id="@+id/btnAnyadirImagenes"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_add_a_photo_orange_28dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtElegirFoto"
+                    app:layout_constraintStart_toEndOf="@+id/txtElegirFoto"
+                    app:layout_constraintTop_toTopOf="@+id/txtElegirFoto" />
+
+                <ImageButton
+                    android:id="@+id/btnUbicacion"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginTop="81dp"
+                    android:layout_marginEnd="32dp"
+                    android:src="@drawable/ic_add_location_orange_28dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txtUbicacion"
+                    app:layout_constraintTop_toBottomOf="@+id/btnSubirImagenPartes" />
+
+                <TextView
+                    android:id="@+id/txtSubirFoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/SubirFoto"
+                    android:textColor="@color/colorAzulOscuro"
+                    app:layout_constraintStart_toEndOf="@+id/btnAnyadirImagenes"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreParte" />
+
+                <ImageButton
+                    android:id="@+id/btnSubirImagenPartes"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginEnd="32dp"
+                    android:src="@drawable/ic_file_upload_black_24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txtSubirFoto"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreParte" />
+
+                <EditText
+                    android:id="@+id/txtUbicacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="81dp"
+                    android:backgroundTint="@color/colorNaranja"
+                    android:clickable="false"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:hint="@string/Ubicacion"
+                    android:inputType="textPersonName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnSubirImagenPartes" />
+
+                <TextView
+                    android:id="@+id/txtTitCamionPartes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="42dp"
+                    android:text="@string/Camion"
+                    android:textColor="@color/colorAzulOscuro"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtUbicacion" />
+
+                <Spinner
+                    android:id="@+id/spinnerCamion"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="39dp"
+                    android:layout_marginEnd="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnUbicacion" />
+
+                <ScrollView
+                    android:id="@+id/scrollView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTitCamionPartes">
+
+                    <EditText
+                        android:id="@+id/txtDescripcion"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorNaranja"
+                        android:ems="10"
+                        android:hint="@string/Descripcion"
+                        android:inputType="text|textMultiLine"
+                        android:lineSpacingExtra="5sp"
+                        android:padding="5dp"
+                        android:typeface="normal" />
+                </ScrollView>
+
+                <Button
+                    android:id="@+id/btnCrearParte"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:text="@string/CrearNuevoViaje"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="@drawable/disenio_btn_redondo_relleno"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollView4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </layout>

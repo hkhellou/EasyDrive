@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -339,15 +341,21 @@
 
         <Button
             android:id="@+id/btnCrearNuevoGasto"
-            android:layout_width="411dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorNaranja"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/disenio_btn_redondo_relleno"
             android:text="@string/CrearNuevoViaje"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnTotalGastos" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
 
 
 </layout>
