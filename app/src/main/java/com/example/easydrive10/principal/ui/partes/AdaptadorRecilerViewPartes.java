@@ -33,7 +33,11 @@ public class AdaptadorRecilerViewPartes extends RecyclerView.Adapter<AdaptadorRe
     holder.binding.txtCamionParte.setText(listaPartes.get(position).getCamion());
     holder.binding.txtNombreParte.setText(listaPartes.get(position).getNombre());
     }
-
+    public void removeItem(int position) {
+//        BORRAR ELEMENTO DE LA LISTA
+        listaPartes.remove(position);
+        notifyItemRemoved(position);
+    }
     @Override
     public int getItemCount() {
         return listaPartes.size();
@@ -46,5 +50,9 @@ public class AdaptadorRecilerViewPartes extends RecyclerView.Adapter<AdaptadorRe
             super(binding.getRoot());
             this.binding = binding;
         }
+    }
+
+    public List<Partes> getListaPartes() {
+        return listaPartes;
     }
 }

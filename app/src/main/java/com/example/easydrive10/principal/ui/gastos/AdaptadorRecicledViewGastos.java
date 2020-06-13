@@ -34,7 +34,11 @@ public class AdaptadorRecicledViewGastos extends RecyclerView.Adapter<AdaptadorR
         holder.itemsListaGastosBinding.txtNombreGasto.setText(listaGastos.get(position).getNombre());
         holder.itemsListaGastosBinding.txtTotalGastos.setText(listaGastos.get(position).getTotalGastos()+"€");
     }
-
+    public void removeItem(int position) {
+//        BORRAR ELEMENTO DE LA LISTA
+        listaGastos.remove(position);
+        notifyItemRemoved(position);
+    }
     @Override
     public int getItemCount() {
         //        CANTIDAD DE ELEMENTOS QUE TENDRÁ QUE PROCESAR EL RECYCLER
@@ -43,7 +47,6 @@ public class AdaptadorRecicledViewGastos extends RecyclerView.Adapter<AdaptadorR
 
     @Override
     public void onClick(View view) {
-        
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -53,5 +56,9 @@ public class AdaptadorRecicledViewGastos extends RecyclerView.Adapter<AdaptadorR
             super(itemsListaGastosBinding.getRoot());
             this.itemsListaGastosBinding = itemsListaGastosBinding;
         }
+    }
+
+    public List<Gastos> getListaGastos() {
+        return listaGastos;
     }
 }

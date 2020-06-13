@@ -35,21 +35,21 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
 //            Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
 //            startActivity(i);
 //        } else {
-            btnLoginEnter = findViewById(R.id.btnEnterLogin);
-            txtEmail = findViewById(R.id.txtLoginEmail);
-            txtPass = findViewById(R.id.txtLoginPass);
-            viewModel = new ViewModelProvider(this, new LoginViewModelFactory(this, this)).get(LoginViewModel.class);
-            viewModel.getMutableCorreo().observe(this, new Observer<String>() {
-                @Override
-                public void onChanged(String s) {
-                    if (!Patterns.EMAIL_ADDRESS.matcher(s).matches()) {
-                        txtEmail.setError("Inserte un correo valido");
-                    }
+        btnLoginEnter = findViewById(R.id.btnEnterLogin);
+        txtEmail = findViewById(R.id.txtLoginEmail);
+        txtPass = findViewById(R.id.txtLoginPass);
+        viewModel = new ViewModelProvider(this, new LoginViewModelFactory(this, this)).get(LoginViewModel.class);
+        viewModel.getMutableCorreo().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                if (!Patterns.EMAIL_ADDRESS.matcher(s).matches()) {
+                    txtEmail.setError("Inserte un correo valido");
                 }
-            });
-            binding.setLoginViewModel(viewModel);
-            binding.setLifecycleOwner(this);
-        }
+            }
+        });
+        binding.setLoginViewModel(viewModel);
+        binding.setLifecycleOwner(this);
+    }
 
 //    }
 //        });
@@ -110,5 +110,14 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
         editor.putBoolean("sesion", binding.switchCredenciales.isChecked());
         editor.commit();
 //        recuperarUsuarioPreferencias();
+    }
+
+    @Override
+    public void onBackPressed() {
+//        CERRAR LA APP CUANDO ESTEMOS EN LA PÁGINA DE INICIO DE SESIÓN Y PULSEMOS EL BOTÓN ATRAS
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
     }
 }

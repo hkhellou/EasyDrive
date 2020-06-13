@@ -57,4 +57,10 @@ public interface MiServicio {
 //  INSERTAR PARTES
     @GET("insertarNuevoParte.php")
     Call<Void> insertarParte(@Query("localizacion") String localizacion, @Query("descripcion") String descripcion, @Query("camion") String camion, @Query("camionero") String camionero, @Query("nombre") String nombre);
+    @GET("borrarViaje.php")
+    Call<Void> borrarViaje(@Query("id_viajes") String id_viaje);
+    @GET("borrarParte.php")
+    Call<Void> borrarParte(@Query("id_partes") String id_viaje);
+    @GET("borrarGasto.php")
+    Call<Void> borrarGasto(@Query("id_gastos") String id_gasto);
 }

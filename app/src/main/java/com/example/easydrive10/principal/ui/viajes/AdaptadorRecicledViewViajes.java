@@ -35,7 +35,11 @@ public class AdaptadorRecicledViewViajes extends RecyclerView.Adapter<AdaptadorR
         holder.binding.txtFechaLlegada.setText(listaViajes.get(position).getFechaLlegada());
 
     }
-
+    public void removeItem(int position) {
+//        BORRAR ELEMENTO DE LA LISTA
+        listaViajes.remove(position);
+        notifyItemRemoved(position);
+    }
     @Override
     public int getItemCount() {
 //        CANTIDAD DE ELEMENTOS QUE TENDRÁ QUE PROCESAR EL RECYCLER
@@ -49,5 +53,9 @@ public class AdaptadorRecicledViewViajes extends RecyclerView.Adapter<AdaptadorR
             super(binding.getRoot());
             this.binding = binding;
         }
+    }
+
+    public List<Viajes> getListaViajes() {
+        return listaViajes;
     }
 }

@@ -20,12 +20,14 @@ public class PartesViewModel extends ViewModel {
     private MiServicio miServicio;
     private MutableLiveData<String> mutableCorreo;
     private MutableLiveData<ArrayList<Partes>> listaMutablePartes;
+    private MutableLiveData<String> mutableIdParte;
 
     public PartesViewModel(Context context, IPartesInterface iPartesInterface) {
         this.context = context;
         this.iPartesInterface = iPartesInterface;
         miServicio = MiRepositorio.getMiServicio();
         mutableCorreo = new MutableLiveData<>();
+        mutableIdParte = new MutableLiveData<>();
         listaMutablePartes = new MutableLiveData<>();
     }
 
@@ -48,11 +50,30 @@ public class PartesViewModel extends ViewModel {
         });
     }
 
+    public void borrarParte(){
+        String idParte = mutableIdParte.getValue();
+        miServicio.borrarParte(idParte).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+            }
+        });
+    }
+
     public MutableLiveData<String> getMutableCorreo() {
         return mutableCorreo;
     }
 
     public MutableLiveData<ArrayList<Partes>> getListaMutablePartes() {
         return listaMutablePartes;
+    }
+
+    public MutableLiveData<String> getMutableIdParte() {
+        return mutableIdParte;
     }
 }

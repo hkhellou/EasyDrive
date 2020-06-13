@@ -106,15 +106,7 @@ public class NuevoParteFragment extends Fragment implements INuevoParteInterface
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
             }
         });
-        binding.btnCrearParte.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nuevoParteViewModel.getMutableNombre().setValue(binding.txtNombreParte.getText().toString());
-                nuevoParteViewModel.getMutableDescripcion().setValue(binding.txtDescripcion.getText().toString());
-                nuevoParteViewModel.getMutableLocalizacion().setValue(binding.txtUbicacion.getText().toString());
-                nuevoParteViewModel.insertarParte();
-            }
-        });
+        binding.setViewModel(nuevoParteViewModel);
         binding.setLifecycleOwner(this);
         return view;
     }

@@ -155,7 +155,7 @@
               android:layout_marginTop="32dp"
               android:layout_marginEnd="32dp"
               android:background="@drawable/disenio_btn_redondo_relleno"
-              android:enabled="@{!TextUtils.isEmpty(RegisterViewModel.mutableCorreoRegister)&amp;&amp;Patterns.EMAIL_ADDRESS.matcher(RegisterViewModel.mutableCorreoRegister).matches()}"
+              android:enabled="@{!TextUtils.isEmpty(RegisterViewModel.mutableCorreoRegister)&amp;&amp;!TextUtils.isEmpty(RegisterViewModel.mutablePassRegister)&amp;&amp;!TextUtils.isEmpty(RegisterViewModel.mutableNombreRegister)&amp;&amp;!TextUtils.isEmpty(RegisterViewModel.mutableApellidosRegister)&amp;&amp;!TextUtils.isEmpty(RegisterViewModel.mutableDniRegister)&amp;&amp;!TextUtils.isEmpty(RegisterViewModel.mutableCamionRegister)&amp;&amp;!TextUtils.isEmpty(RegisterViewModel.mutableFecNacimientoRegister)&amp;&amp;Patterns.EMAIL_ADDRESS.matcher(RegisterViewModel.mutableCorreoRegister).matches()}"
               android:onClick="@{() -> RegisterViewModel.insertarUsuario()}"
               android:text="@string/btnRegister"
               android:textColor="@color/colorCrema"

@@ -123,16 +123,17 @@ public class NuevoGastoFragment extends Fragment implements INuevoGastoInterface
             @Override
             public void onClick(View view) {
                 nuevoGastoViewModel.getTotal_gastosMutable().setValue(String.valueOf(calcularTotalGastos()));
-                binding.txtTotalGastos.setText(nuevoGastoViewModel.getTotal_gastosMutable().getValue());
+                binding.txtTotalGastos.setText(nuevoGastoViewModel.getTotal_gastosMutable().getValue()+"€");
             }
         });
-        binding.btnCrearNuevoGasto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nuevoGastoViewModel.getNombreMutable().setValue(binding.txtNombreGasto.getText().toString());
-                nuevoGastoViewModel.insertarGastos();
-            }
-        });
+//        binding.btnCrearNuevoGasto.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                nuevoGastoViewModel.getNombreMutable().setValue(binding.txtNombreGasto.getText().toString());
+//                nuevoGastoViewModel.insertarGastos();
+//            }
+//        });
+        binding.setNuevoGastoVm(nuevoGastoViewModel);
         binding.setLifecycleOwner(this);
         return view;
     }

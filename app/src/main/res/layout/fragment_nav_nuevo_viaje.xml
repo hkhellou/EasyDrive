@@ -126,6 +126,7 @@
             android:layout_marginEnd="32dp"
             android:background="@drawable/disenio_btn_redondo_relleno"
             android:foregroundTint="@color/colorNaranja"
+            android:enabled="@{!TextUtils.isEmpty(NViajeViewModel.paisDestinoMutable)&amp;&amp;!TextUtils.isEmpty(NViajeViewModel.empresaDestinoMutable)&amp;&amp;!TextUtils.isEmpty(NViajeViewModel.direccionDestinoMutable)&amp;&amp;!TextUtils.isEmpty(NViajeViewModel.fechaSalidaMutable)&amp;&amp;!TextUtils.isEmpty(NViajeViewModel.fechaLlegaMutable)}"
             android:onClick="@{() -> NViajeViewModel.insertarViaje()}"
             android:text="@string/CrearNuevoViaje"
             android:textColor="@color/colorCrema"

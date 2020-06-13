@@ -21,12 +21,14 @@ public class ViajesViewModel extends ViewModel {
     private MiServicio miServicio;
     private MutableLiveData<String> correoUsuarioPreferencias;
     private MutableLiveData<ArrayList<Viajes>> listaViajesCamioneroMutable;
+    private MutableLiveData<String> mutableIdViajes;
 
     public ViajesViewModel(Context context, IViajesInterface iViajesInterface) {
         this.context = context;
         this.iViajesInterface = iViajesInterface;
         correoUsuarioPreferencias = new MutableLiveData<>();
         listaViajesCamioneroMutable = new MutableLiveData<>();
+        mutableIdViajes = new MutableLiveData<>();
         miServicio = MiRepositorio.getMiServicio();
     }
     public void getViajesCamionero(){
@@ -48,11 +50,31 @@ public class ViajesViewModel extends ViewModel {
         });
 
     }
+
+    public void borrarViaje(){
+        String idViaje = mutableIdViajes.getValue();
+        miServicio.borrarViaje(idViaje).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+            }
+        });
+    }
+
     public MutableLiveData<String> getCorreoUsuarioPreferencias() {
         return correoUsuarioPreferencias;
     }
 
     public MutableLiveData<ArrayList<Viajes>> getListaViajesCamioneroMutable() {
         return listaViajesCamioneroMutable;
+    }
+
+    public MutableLiveData<String> getMutableIdViajes() {
+        return mutableIdViajes;
     }
 }

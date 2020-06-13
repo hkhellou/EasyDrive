@@ -19,6 +19,7 @@ public class GastosViewModel extends ViewModel {
     private IGastosInterface iGastosInterface;
     private MiServicio miServicio;
     private MutableLiveData<String> correoMutable;
+    private MutableLiveData<String> mutableIdGastos;
     private MutableLiveData<ArrayList<Gastos>> listaGastosMutable;
 
     public GastosViewModel(Context context, IGastosInterface iGastosInterface) {
@@ -26,6 +27,7 @@ public class GastosViewModel extends ViewModel {
         this.iGastosInterface = iGastosInterface;
         miServicio = MiRepositorio.getMiServicio();
         listaGastosMutable = new MutableLiveData<>();
+        mutableIdGastos = new MutableLiveData<>();
         correoMutable = new MutableLiveData<>();
     }
 
@@ -47,11 +49,30 @@ public class GastosViewModel extends ViewModel {
         });
     }
 
+    public void borrarGastos(){
+        String idGastos = mutableIdGastos.getValue();
+        miServicio.borrarGasto(idGastos).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+            }
+        });
+    }
+
     public MutableLiveData<String> getCorreoMutable() {
         return correoMutable;
     }
 
     public MutableLiveData<ArrayList<Gastos>> getListaGastosMutable() {
         return listaGastosMutable;
+    }
+
+    public MutableLiveData<String> getMutableIdGastos() {
+        return mutableIdGastos;
     }
 }

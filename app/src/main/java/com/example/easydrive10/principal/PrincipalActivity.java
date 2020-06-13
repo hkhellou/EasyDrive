@@ -70,6 +70,7 @@ public class PrincipalActivity extends AppCompatActivity implements IPrincipalIn
 
     @Override
     public void onBackPressed() {
+
 //        METODO PARA QUE CUANDO EL MENU LATERAL ESTE DESPLEGADO Y PULSEMOS ATRAS SE VUELVA A PLEGAR
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);

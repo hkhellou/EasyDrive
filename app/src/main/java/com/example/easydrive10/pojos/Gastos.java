@@ -4,6 +4,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Gastos {
+    @SerializedName("Id_Gastos")
+    @Expose
+    private String idGastos;
     @SerializedName("Nombre")
     @Expose
     private String nombre;
@@ -25,6 +28,14 @@ public class Gastos {
     @SerializedName("Total_Gastos")
     @Expose
     private String totalGastos;
+
+    public String getIdGastos() {
+        return idGastos;
+    }
+
+    public void setIdGastos(String idGastos) {
+        this.idGastos = idGastos;
+    }
 
     public String getNombre() {
         return nombre;
@@ -85,12 +96,14 @@ public class Gastos {
     @Override
     public String toString() {
         return "Gastos{" +
-                "nombre='" + nombre + '\'' +
+                "idGastos='" + idGastos + '\'' +
+                ", nombre='" + nombre + '\'' +
                 ", combustible='" + combustible + '\'' +
                 ", peajes='" + peajes + '\'' +
                 ", comida='" + comida + '\'' +
                 ", otrosGastos='" + otrosGastos + '\'' +
                 ", camionero='" + camionero + '\'' +
+                ", totalGastos='" + totalGastos + '\'' +
                 '}';
     }
 }
