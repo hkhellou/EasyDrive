@@ -32,7 +32,7 @@ public interface MiServicio {
 
     //   INSERTAR EN BBDD
     @GET("insertarUsuario.php")
-    Call<Void> insertarUsuario(@Query("correo") String SCorreo, @Query("contrasenia") String SContrasenia);
+    Call<Void> insertarUsuario(@Query("correo") String SCorreo, @Query("contrasenia") String SContrasenia,@Query("nombre") String nombre, @Query("apellidos") String apellidos,@Query("dni") String dni, @Query("fec_nacimiento") String fecNacimiento,@Query("camion") String camion);
 
     @GET("comprobarUsuarioExiste.php")
     Call<Usuario> comprobarUsuario(@Query("correo") String SCorreo, @Query("contrasenia") String SContrasenia);

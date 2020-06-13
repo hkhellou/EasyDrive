@@ -6,7 +6,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-feature android:name="android.hardware.location.gps"/>
+
+    <uses-feature android:name="android.hardware.location.gps" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_easy_drive"
@@ -18,15 +20,16 @@
         <activity
             android:name=".principal.PrincipalActivity"
             android:label="@string/title_activity_principal"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar" />
         <activity android:name=".register.RegisterActivity" />
-        <activity android:name=".login.LoginActivity">
+        <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".Redireccion">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- CONFIG PARA PERMITIR EL ACCESO AL SERVIDOR MURGI -->
+        </activity>
     </application>
 
 </manifest>

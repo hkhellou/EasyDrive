@@ -32,8 +32,7 @@ public class AdaptadorRecicledViewViajes extends RecyclerView.Adapter<AdaptadorR
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.txtFechaSalidaViajes.setText(listaViajes.get(position).getFechaSalida());
         holder.binding.txtPaisDestinoViajes.setText(listaViajes.get(position).getPaisDestino());
-//        holder.binding.txtFecLlegada.setText(listaViajes.get(position).getFechaLlegada());
-//        holder.binding.txtNombre.setText(listaViajes.get(position).getCamionero());
+        holder.binding.txtFechaLlegada.setText(listaViajes.get(position).getFechaLlegada());
 
     }
 

@@ -48,4 +48,9 @@
     <string name="Ubicacion">Ubicación</string>
     <string name="Descripcion">Descripción</string>
     <string name="MensajeNoPartes">Que suerte!! No tienes ningún parte.</string>
+    <string name="Apellidos">Apellidos</string>
+    <string name="Dni">DNI</string>
+    <string name="FechaNacimiento">Fecha de nacimiento</string>
+    <string name="Matricula">Matrícula</string>
+    <string name="PaisDestino">País de destino</string>
 </resources>

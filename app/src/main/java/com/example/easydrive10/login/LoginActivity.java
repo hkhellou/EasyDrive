@@ -30,11 +30,11 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
-        if (recuperarUsuarioPreferencias()) {
-//            SI EL SWITCH ESTA ACTIVADO ENTRO DIRECTAMENTE SIN PASAR POR EL LOGIN
-            Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
-            startActivity(i);
-        } else {
+//        if (recuperarUsuarioPreferencias()) {
+////            SI EL SWITCH ESTA ACTIVADO ENTRO DIRECTAMENTE SIN PASAR POR EL LOGIN
+//            Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
+//            startActivity(i);
+//        } else {
             btnLoginEnter = findViewById(R.id.btnEnterLogin);
             txtEmail = findViewById(R.id.txtLoginEmail);
             txtPass = findViewById(R.id.txtLoginPass);
@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
             binding.setLifecycleOwner(this);
         }
 
-    }
+//    }
 //        });
 
     @Override
