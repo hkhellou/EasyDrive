@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity implements IloginInterface 
 
     @Override
     public void noExisteUsuario() {
-        Toast.makeText(this, "No Existe", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "No existe usuario", Toast.LENGTH_SHORT).show();
     }
 
     @Override

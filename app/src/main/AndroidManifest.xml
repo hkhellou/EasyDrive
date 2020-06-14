@@ -20,9 +20,9 @@
         <activity
             android:name=".principal.PrincipalActivity"
             android:label="@string/title_activity_principal"
-            android:theme="@style/NoActionBar" />
+            android:theme="@style/NoActionBar"/>
         <activity android:name=".register.RegisterActivity" />
-        <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".login.LoginActivity" />
         <activity android:name=".Redireccion">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

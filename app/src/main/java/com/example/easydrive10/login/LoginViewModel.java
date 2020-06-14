@@ -3,9 +3,7 @@ package com.example.easydrive10.login;
 import android.content.Context;
 import android.util.Log;
 import android.util.MalformedJsonException;
-import android.view.View;
 
-import com.example.easydrive10.pojos.Camionero;
 import com.example.easydrive10.pojos.Usuario;
 import com.example.easydrive10.retrofit.MiRepositorio;
 import com.example.easydrive10.retrofit.MiServicio;
@@ -36,20 +34,6 @@ public class LoginViewModel extends ViewModel {
         mutableCorreo = new MutableLiveData<>();
         mutableContrasenia = new MutableLiveData<>();
     }
-    public void getUsuarios(){
-        miServicio.getUsuarios().enqueue(new Callback<ArrayList<Usuario>>() {
-            @Override
-            public void onResponse(Call<ArrayList<Usuario>> call, Response<ArrayList<Usuario>> response) {
-                ArrayList<Usuario> listaUsuarios = response.body();
-                listaUsuariosMutable.setValue(listaUsuarios);
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<Usuario>> call, Throwable t) {
-                Log.i("errorR", "onFailure: "+t);
-            }
-        });
-    }
     public void comprobarUsuario(){
         String correo=mutableCorreo.getValue();
         String contrasenia = mutableContrasenia.getValue();
@@ -59,6 +43,8 @@ public class LoginViewModel extends ViewModel {
                 Usuario usuario = response.body();
                     if(usuario!=null){
                         iloginInterface.existeUsuario();
+                    }else{
+                        iloginInterface.noExisteUsuario();
                     }
             }
 

@@ -58,4 +58,10 @@
     <string name="titSalirApp">Salir</string>
     <string name="Si">Si</string>
     <string name="No">No</string>
+    <string name="acercaDe">Acerda de</string>
+    <string name="AcercaDe">Acerca De</string>
+    <string name="Aceptar">Aceptar</string>
+    <string name="Contacto">Contacto</string>
+    <string name="MensajeAcercaDe">EasyDrive Drive es una aplicación desarrollada por el alumno Houssam Khellou para el proyecto integrado del FP Desarrollo de aplicaciones multiplataforma del instituto I.E.S Murgi</string>
+    <string name="CorreoHoussam">mouhaumimon@gmail.com</string>
 </resources>

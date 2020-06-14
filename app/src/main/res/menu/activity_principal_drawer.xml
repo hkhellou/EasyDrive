@@ -26,6 +26,10 @@
         <menu>
             <group>
                 <item
+                    android:id="@+id/nav_acercade"
+                    android:icon="@drawable/ic_help_black_24dp"
+                    android:title="@string/AcercaDe" />
+                <item
                     android:id="@+id/btn_cerrarSesion"
                     android:icon="@drawable/ic_cancel_black_24dp"
                     android:title="@string/CerrarSesion" />
